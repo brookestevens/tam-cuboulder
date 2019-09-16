@@ -1,5 +1,5 @@
 html {
-  font-family: sans-serif;
+  font-family: 'helveticaNeue-light', 'arial';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -18,7 +18,7 @@ header,
 main,
 menu,
 nav,
-section,
+section, 
 summary {
   display: block;
 }

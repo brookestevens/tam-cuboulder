@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Technology Arts & Media Program`,
+    description: `Fully Decoupled Drupal 8 site`,
+    author: `Brooke Stevens`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +11,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },        
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://dev-atlas-tam.pantheonsite.io/`,
+        apiBase: `jsonapi`, //default way drupal shows content
       },
     },
     `gatsby-transformer-sharp`,

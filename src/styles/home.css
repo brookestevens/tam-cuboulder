@@ -1,0 +1,41 @@
+.particles{
+    background-color: #1f1f1f;
+}
+
+.scroll-arrow, .atlas-logo{
+   z-index: 3;
+   position: absolute;
+   top: 90%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.atlas-logo{
+    top: 35%;
+}
+
+.front-page-news{
+    height: 100%;
+}
+
+.centered-subtitle-text{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* border: 1px solid white; */
+    /* color: #CFB87C; */
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.centered-subtitle-text > h3{
+    font-size: 3em;
+    font-weight: 100;
+    font-family: 'helveticaNeue-light';
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+/* Mobile Styles */
