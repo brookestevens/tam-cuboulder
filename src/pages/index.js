@@ -1,6 +1,6 @@
 import React from "react"
 import {graphql} from "gatsby"
-import Header from "../components/Header"
+import Header from "../components/header"
 import Footer from '../components/Footer'
 import SEO from "../components/seo"
 import Particles from 'react-particles-js'
