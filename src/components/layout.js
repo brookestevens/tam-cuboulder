@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
 
   return (
     <React.Fragment>
-      <Header siteTitle={data.site.siteMetadata.title} />      
+      <Header siteTitle={data.site.siteMetadata.title} />
       <SideMenu/>
       <div
         style={{

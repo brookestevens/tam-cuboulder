@@ -51,6 +51,7 @@ function IndexPage(){
       {/* Second part of the screen */}
       <div className = "front-page-news">
         <h2> News here </h2>
+        {/* map through news on the front page */}
       </div>
       <Footer/>
     </React.Fragment>

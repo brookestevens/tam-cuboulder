@@ -1,5 +1,10 @@
 {
     "root": "public/",
+    "proxies": {
+      "/api/": {
+        "origin": "http://dev-atlas-tam.pantheonsite.io/api"
+      }
+    },
     "headers": {
       "/**": {
         "Cache-Control": "public, max-age=0, must-revalidate"

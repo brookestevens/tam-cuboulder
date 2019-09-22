@@ -4,6 +4,10 @@ module.exports = {
     description: `Fully Decoupled Drupal 8 site`,
     author: `Brooke Stevens`,
   },
+  proxy: {
+    prefix: "/api",
+    url: "http://dev-atlas-tam.pantheonsite.io",
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
