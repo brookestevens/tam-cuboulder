@@ -1,25 +1,59 @@
-import React from "react"
+import React, { useState } from "react"
+import '../styles/page.css';
 
 function Footer(){
+    const[search, setSearch] = useState("");
+
+    function handlePress(c){
+        if(c === 13) window.location = `https://www.colorado.edu/search?cse=${search}&op=Search`;
+    }
+
     return(
-        <footer style={{backgroundColor: 'black' , color: 'grey'}}>
-            <div style={{ padding: '1em', display: 'flex', justifyContent: 'space-between'}} className="footer-tam-links">
+        <footer className = "footer-tam">
+            <hr/>
+            <div className="footer-tam-links">
                 <div>
                     <h3> Technology Arts and Media</h3>
-                    <p> stuff</p>
+                    <ul>
+                        <li>Atlas Institute</li>
+                        <li>University of Colorado Boulder</li>
+                        <li>Legal & Trademarks</li>
+                        <li> © Regents of University Colorado Boulder</li>
+                    </ul>
                 </div>
                 <div>
                     <h3> Contact Us </h3>
-                    <p> stuff</p>
+                    <ul>
+                        <li> Email: tamprogram@colorado.edu</li>
+                        <li> Call: 303-735-4834</li>
+                        <li> Facebook</li>
+                        <li> Twitter </li>
+                    </ul>
                 </div>
                 <div>
                     <h3> Find Us</h3>
-                    <p> stuff</p>
+                    <ul>
+                        <li>ATLAS Building, Suite 235</li>
+                        <li>320 UCB</li>
+                        <li>Boulder, CO 80309-0320</li>
+                    </ul>
                 </div>
-            </div>    
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+                <div>
+                    <h3> CU </h3>
+                    <ul>
+                        <li> Home </li>
+                        <li>A to Z | Campus Map</li>
+                    </ul>
+                    <input 
+                        type = "text" 
+                        value = {search} 
+                        onChange = {e => setSearch(e.target.value.replace(' ', '+'))}
+                        onKeyDown = {e => handlePress(e.keyCode)} 
+                        placeholder = "Search CU-Boulder"
+                    />
+                </div>
+            </div>
+        <span> © {new Date().getFullYear()}, Built with {` `} <a href="https://www.gatsbyjs.org">Gatsby</a> </span>
         </footer>
     );
 }

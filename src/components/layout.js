@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import SideMenu from './SideMenu'
 import Header from "./header"
 import Footer from './Footer'
 import "../styles/layout.css"
@@ -15,12 +14,11 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
-
+  `);
+  
   return (
     <React.Fragment>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <SideMenu/>
       <div
         style={{
           margin: `0 auto`,

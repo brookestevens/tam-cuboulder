@@ -1,0 +1,34 @@
+
+/* FOOTER */
+
+.footer-tam{
+    background-color: black;
+    color: grey;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.footer-tam hr{
+    border-top: 1px solid grey;
+    margin-top: 1em;
+}
+
+.footer-tam span{
+    margin-left: 1em;
+}
+
+.footer-tam-links{
+    padding: 1em;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.footer-tam-links ul{
+    margin: 0px;
+}
+
+.footer-tam-links li{
+    list-style-type: none;
+    font-size: 90%;
+
+}

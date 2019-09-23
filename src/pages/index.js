@@ -31,7 +31,7 @@ function handleClick(){
   window.scroll({ top: document.body.scrollHeight, left: 0 , behavior: 'smooth' });
 }
 
-function IndexPage(){
+function IndexPage({data}){
   return(
     <React.Fragment>
       <SEO title="Home" />
@@ -50,12 +50,38 @@ function IndexPage(){
       </div>
       {/* Second part of the screen */}
       <div className = "front-page-news">
-        <h2> News here </h2>
+        <h2> Radical Creativity and Invention. </h2>
+        <p>
+          The Technology, Arts & Media Program is part of the ATLAS Institute on the University of Colorado at Boulder campus. 
+          ATLAS is an innovative initiative in education, research, creative work and outreach in which information and communication 
+          technology is the enabling force.
+        </p>
         {/* map through news on the front page */}
+        {data.allNodePage.nodes.map( i => (
+          <div key = {i.title}>
+            <h3>{i.title}</h3>
+            <p> {i.body.value} </p>
+            <hr/>
+          </div>
+        ))}
       </div>
       <Footer/>
     </React.Fragment>
   );
 }
+
+export const query = graphql`
+  {
+    allNodePage(filter: {promote: {eq: true}}) {
+      nodes {
+        title
+        body {
+          value
+        }
+      }
+    }
+  }
+`
+
 
 export default IndexPage

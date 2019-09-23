@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Technology Arts & Media Program`,
-    description: `Fully Decoupled Drupal 8 site`,
+    description: `The philosophy of the TAM curriculum is to integrate creative production, critical thinking, and technical skills into each course`,
     author: `Brooke Stevens`,
   },
   proxy: {
@@ -35,7 +35,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/tam-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

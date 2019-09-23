@@ -28,9 +28,9 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <div className="header-links-flex" style={{display: 'flex', justifyContent: 'space-between'}} >
-        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/courses/"> Courses </Link>
-        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/programs/"> Programs </Link>
-        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/advising/"> Advising </Link>
+        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/courses"> Courses </Link>
+        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/programs"> Programs </Link>
+        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/advising"> Advising </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/people"> People </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/student-groups"> Student Groups </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/resources"> Resources </Link>
