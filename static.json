@@ -3,6 +3,9 @@
     "proxies": {
       "/api/": {
         "origin": "http://dev-atlas-tam.pantheonsite.io/api"
+      },
+      "/entity/": {
+         "origin" : "http://dev-atlas-tam.pantheonsite.io/entity"
       }
     },
     "headers": {

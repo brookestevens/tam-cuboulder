@@ -28,7 +28,8 @@ const particlesOptions = {
 
 function handleClick(){
   //scroll down 100% of the page
-  window.scroll({ top: document.body.scrollHeight, left: 0 , behavior: 'smooth' });
+  const height = document.body.scrollHeight - 800;
+  window.scroll({ top: height, left: 0 , behavior: 'smooth' });
 }
 
 function IndexPage({data}){

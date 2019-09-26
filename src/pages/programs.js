@@ -1,17 +1,14 @@
 import React from 'react';
-import SideMenu from '../components/SideMenu';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import "../styles/page.css"
 
 function ProgramsPage(){
-    const links = ['Major', 'Minor'];
     return(
         <React.Fragment>
-        <SideMenu links={links}/>
-        <Layout>
+        <Layout link="Programs">
           <SEO title="Programs"/>
           <h2>Programs</h2>
-
         </Layout>
       </React.Fragment>
     );

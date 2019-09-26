@@ -2,14 +2,12 @@ import React, { useEffect} from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ClassSearch from "../components/classSearch"
-import SideMenu from "../components/SideMenu"
+import "../styles/page.css"
 
 function CoursesPage(){  
-    const links = ['Summer', 'Spring', 'Fall 2019'];
     return (
       <React.Fragment>
-        <SideMenu links={links}/>
-        <Layout>
+        <Layout link="Courses">
           <SEO title="Courses" />
           <h2>Courses</h2>
           <ClassSearch/>

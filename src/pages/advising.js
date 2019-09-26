@@ -2,6 +2,7 @@ import React, { useEffect} from "react"
 import {graphql} from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../styles/page.css"
 
 function AdvisingPage({data}){
   
@@ -11,7 +12,7 @@ function AdvisingPage({data}){
   }, [])
   
   return (
-    <Layout>
+    <Layout link={null}>
         <SEO title="Advising" />
         <h2>{data.allNodePage.nodes[0].title}</h2>
         <div id="body-content">

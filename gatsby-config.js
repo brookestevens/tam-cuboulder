@@ -5,7 +5,7 @@ module.exports = {
     author: `Brooke Stevens`,
   },
   proxy: {
-    prefix: "/api",
+    prefix: "/*",
     url: "http://dev-atlas-tam.pantheonsite.io",
   },
   plugins: [

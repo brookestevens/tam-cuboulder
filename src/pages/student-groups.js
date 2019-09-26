@@ -2,6 +2,7 @@ import React, { useEffect, useState} from "react"
 import {graphql} from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../styles/page.css"
 
 function StudentGroupsPage({data}){
   const [description, setDescription] = useState([]);
@@ -23,7 +24,7 @@ function StudentGroupsPage({data}){
   }
   else{
     return (
-        <Layout>
+        <Layout link={null}>
             <SEO title="Student Groups" />
             <h2>Student Groups</h2>
             {data.allNodeStudentGroup.nodes.map( i => (

@@ -1,4 +1,4 @@
-import { Link, withAssetPrefix } from "gatsby"
+import {Link} from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -23,17 +23,18 @@ const Header = ({ siteTitle }) => (
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
-          style={{ color: `white`, textDecoration: `none` }} >
+          style={{ color: `#CFB87C`, textDecoration: `none` }} >
           {siteTitle}
         </Link>
       </h1>
       <div className="header-links-flex" style={{display: 'flex', justifyContent: 'space-between'}} >
-        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/courses"> Courses </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/programs"> Programs </Link>
+        <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/courses"> Courses </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/advising"> Advising </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/people"> People </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/student-groups"> Student Groups </Link>
         <Link className="header-links" style={{ color: `white`, textDecoration: `none` }} to="/resources"> Resources </Link>
+        {/* Add any extra maenu links here! */}
       </div>
     </div>
   </header>

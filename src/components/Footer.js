@@ -53,7 +53,7 @@ function Footer(){
                     />
                 </div>
             </div>
-        <span> © {new Date().getFullYear()}, Built with {` `} <a href="https://www.gatsbyjs.org">Gatsby</a> </span>
+        <span> © {new Date().getFullYear()}, Built with {` `} Gatsby </span>
         </footer>
     );
 }

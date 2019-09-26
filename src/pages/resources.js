@@ -1,17 +1,14 @@
 import React from 'react';
-import SideMenu from '../components/SideMenu';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import "../styles/page.css"
 
 function PeoplePage(){
-    const links = ['Faculty', 'Staff'];
     return(
         <React.Fragment>
-        <SideMenu links={links}/>
-        <Layout>
+        <Layout link="Resources">
           <SEO title="Resources"/>
           <h2>Resources</h2>
-
         </Layout>
       </React.Fragment>
     );

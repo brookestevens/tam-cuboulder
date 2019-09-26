@@ -8,7 +8,7 @@ function ClassSearch(){
     const [classID, setClassID] = useState(""); //search string
     const [results, setResults] = useState([]);
 
-    useEffect(()=>{
+    useEffect(()=>{ //cache this??
         fetch('/api/getAllCourses')
         .then(res => res.json())
         .then(res => setClasses([...classes, ...res.results]))
@@ -36,12 +36,24 @@ function ClassSearch(){
 
     //the modal itself
     function renderCourseDetails(){
+        const styles = {
+            position: 'fixed',
+            zIndex: 1,
+            top:'20%',
+            backgroundColor: '#fefefe',
+            marginRight: '15% auto',
+            marginLeft: '15% auto',
+            padding: '20px',
+            border: '1px solid #888',
+            width: '50%'
+        };
+
         if(classDetail === null || toggle === false){
             return null;
         }
         else{
             return(
-                <div className = "details-modal">
+                <div className = "details-modal" style={styles}>
                     <h3> {classDetail.name}</h3>
                     <p> Hours: {classDetail.hours} Dates: {classDetail.dates}</p>
                     <p> Instructor: {classDetail.prof}</p>
@@ -54,10 +66,12 @@ function ClassSearch(){
 
     //craete array of classes that match the search
     //check for substring...
+    //fix this! 
+
     function handleSearch(){
         for(let i = 0; i<classes.length; i++){
-            console.log(classID, classes[i].code, classes[i].title);
-            if(classes[i].code === classID || classes[i].title === classID){
+            // console.log(classID, classes[i].code, classes[i].title);
+            if(classes[i].code === "ATLS " + classID || classes[i].title.toLowerCase() === classID.toLowerCase()){
                 setResults([...results, classes[i]]); //set array of matching classes
             }
         }
@@ -72,7 +86,7 @@ function ClassSearch(){
                 {/* the modal for class details */}
                 {renderCourseDetails()}
                 {/* List out all classes */}
-                <input type = "text" value = {classID} placeholder = "Enter Class Name " onChange = {e => setClassID(e.target.value) } ></input>
+                <input type = "text" value = {classID} placeholder = "Course Name or Number" onChange = {e => setClassID(e.target.value) } ></input>
                 <button onClick = {()=> handleSearch()}> Search </button>
                 <p> OR </p>
                 <label> Sort by </label>

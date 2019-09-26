@@ -2,28 +2,26 @@ import PropTypes from "prop-types"
 import React from "react"
 
 
-function SideMenu(props){
+// A recursively rendered module
 
-    const styles = {
-        backgroundColor: 'black',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'absolute',
-        top: '20%',
-        padding: '1.5em'
-    };
+function SideMenu(props) {
     // to = "#id-name" 
-    return(
-        <div className="header-links-flex" style={styles} >
-            {props.links.map( i => (
-                <a className="header-links" style={{color: 'white'}} href={`#${i}-id`}> {i} </a>
-            ))}
-        </div>
+    return (
+        props.sublinks.map(i => (
+            <React.Fragment>
+            <ul className="submenu">
+                <li>
+                    <a key={i.link.meta_data.entity_id} className="header-links" style={{ color: 'white' }} href={`#${i.link.title}-id`}> {i.link.title} </a>
+                </li>
+                { i.subtree.length > 0 ?  <SideMenu sublinks={i.subtree}/> : null}
+            </ul>
+            </React.Fragment>
+        ))
     );
 }
 
 SideMenu.propTypes = {
-    links: PropTypes.array
+    sublinks: PropTypes.array
 }
 
 export default SideMenu;
