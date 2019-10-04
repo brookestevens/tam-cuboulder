@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import '../styles/page.css';
 
 function Footer(){
     const[search, setSearch] = useState("");

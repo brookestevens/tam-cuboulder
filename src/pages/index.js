@@ -6,6 +6,8 @@ import SEO from "../components/seo"
 import Particles from 'react-particles-js'
 import ArrowDown from '../images/arrow-down.png';
 import ATLASlogo from '../images/atls-logo.png';
+
+import '../styles/page.css';
 import "../styles/home.css";
 
 const particlesOptions = {

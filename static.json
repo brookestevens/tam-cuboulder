@@ -6,6 +6,9 @@
       },
       "/entity/": {
          "origin" : "http://dev-atlas-tam.pantheonsite.io/entity"
+      },
+      "/sites/": {
+        "origin" : "http://dev-atlas-tam.pantheonsite.io/sites"
       }
     },
     "headers": {

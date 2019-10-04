@@ -4,6 +4,51 @@
     to   { opacity: 1; }
 }
 
+/* HEADER */
+
+header{
+    background: black;
+    margin-bottom: 0px;
+    position: relative;
+    z-index: 3;
+    box-shadow: 3px 3px 3px rgba(0,0,0, 0.5);
+}
+
+div.header-container{
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 1.45rem;
+    font-family: 'helveticaNeue-light';
+}
+
+.header-container  a{
+    color: #CFB87C;
+    text-decoration: none;
+}
+
+.header-container  h1{
+    margin: 0px;
+}
+
+.header-links-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a.header-links{
+    color: white;
+    text-decoration: none;
+    padding-top: 1%;
+}
+
+a > img{
+    margin-bottom: 0px;
+}
+
+
+
+
 
 /* PAGE BODY */
 
@@ -45,13 +90,22 @@ hr{
          animation: fadein 500ms;
 }
 
+.sub-menu-links{
+    list-style-type: none;
+}
+
+a.sub-menu-link{
+    color: white;
+    text-decoration: none;
+}
+
+
 /* FOOTER */
 
 .footer-tam{
     background-color: black;
     color: rgb(255, 255, 255);
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em;
 }
 
 .footer-tam hr{
@@ -67,6 +121,7 @@ hr{
     padding: 1em;
     display: flex; 
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .footer-tam-links ul{
@@ -78,4 +133,50 @@ hr{
     font-size: 90%;
     color: #CFB87C;
 
+}
+
+/* CHECKOUT ITEMS PAGE */
+
+.checkout-item-flex{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.checkout-item-child{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 1rem;
+    max-width: 13rem;
+}
+.checkout-item-child img{
+    display: block;
+    border-radius: 5px 5px 0 0;
+}
+
+.checkout-item-child a{
+    text-decoration: none;
+}
+
+/* CURRENT SEMESTER COURSES */
+
+.course-info{
+    /* border: 1px solid black; */
+    margin-bottom: 1em;
+    padding: 1% 1%;
+}
+.course-title{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+table, tr, th{
+  border: 1px solid black;
+  text-align: center;  
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
