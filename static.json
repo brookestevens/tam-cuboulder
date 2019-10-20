@@ -9,6 +9,9 @@
       },
       "/sites/": {
         "origin" : "http://dev-atlas-tam.pantheonsite.io/sites"
+      },
+      "/hooks/":{
+        "origin" : "http://dev-atlas-tam.pantheonsite.io/hooks"
       }
     },
     "headers": {

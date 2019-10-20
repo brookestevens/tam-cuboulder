@@ -4,6 +4,19 @@
     to   { opacity: 1; }
 }
 
+@keyframes hoverButton {
+    from { 
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
+    to   {
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+    }
+}
+
 /* HEADER */
 
 header{
@@ -47,8 +60,30 @@ a > img{
 }
 
 
+/* FEATURED WORKS FORM */
 
+#submit-project-form input, textarea{
+    margin-bottom: 1em;
+    margin-top: .5em;
+}
 
+.submit-project-button{
+    background-color: white;
+    width: 10em;
+    height: 3em;
+    border: 1px solid black;
+}
+
+.submit-project-button:hover{
+    -webkit-animation: hoverButton 300ms; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: hoverButton 300ms; /* Firefox < 16 */
+     -ms-animation: hoverButton 300ms; /* Internet Explorer */
+      -o-animation: hoverButton 300ms; /* Opera < 12.1 */
+         animation: hoverButton 300ms;
+         background-color: black;
+         color: white;
+         border: 1px solid white;
+}
 
 /* PAGE BODY */
 

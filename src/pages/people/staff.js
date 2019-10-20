@@ -6,7 +6,6 @@ import "../../styles/page.css";
 
 function StaffPage({data}){
     return(
-        <React.Fragment>
         <Layout link="People">
           <SEO title="Staff"/>
           <h2>Staff</h2>
@@ -19,7 +18,6 @@ function StaffPage({data}){
             </div>
           ))}
         </Layout>
-      </React.Fragment>
     );
 }
 export const query = graphql`

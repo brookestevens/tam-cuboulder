@@ -6,7 +6,7 @@ module.exports = {
   },
   proxy: {
     prefix: "/*",
-    url: "http://dev-atlas-tam.pantheonsite.io",
+    url: "http://localhost:8888/atlas-tam/",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://dev-atlas-tam.pantheonsite.io/`,
+        baseUrl: `http://localhost:8888/atlas-tam/`,
         apiBase: `jsonapi`, //default way drupal shows content
       },
     },

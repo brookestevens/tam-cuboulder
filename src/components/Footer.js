@@ -52,7 +52,7 @@ function Footer(){
                     />
                 </div>
             </div>
-        <span> © {new Date().getFullYear()}, Built with {` `} Gatsby </span>
+        <span> © {new Date().getFullYear()}, Built with {` `} Gatsby | Powered by Drupal </span>
         </footer>
     );
 }
