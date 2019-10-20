@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://localhost:8888/atlas-tam/`,
+        baseUrl: `http://dev-atlas-tam.pantheonsite.io/`,
         apiBase: `jsonapi`, //default way drupal shows content
       },
     },
