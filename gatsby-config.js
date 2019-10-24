@@ -6,7 +6,7 @@ module.exports = {
   },
   proxy: {
     prefix: "/*",
-    url: "http://localhost:8888/atlas-tam/",
+    url: "http://dev-atlas-tam.pantheonsite.io/",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

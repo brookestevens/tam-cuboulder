@@ -42,7 +42,7 @@ function CourseTitle(props) {
         <React.Fragment>
             <div className="course-title">
                 <h3> {props.code} - {props.title} </h3>
-                <img onClick={() => handleClick(props.code, props.crn)} src={ArrowDown} alt="show-more-arrow" width="25" />
+                <img onClick={() => handleClick(props.code, props.crn)} src={ArrowDown} alt="show-more-arrow" width="25" height="25" />
             </div>
             {clicked ? renderDetails() : null}
         </React.Fragment>

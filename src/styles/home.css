@@ -1,16 +1,21 @@
 .particles{
     background-color: #1f1f1f;
+    height: 85vh;
 }
 
-.scroll-arrow, .atlas-logo{
+.scroll-arrow, .tam-title{
    z-index: 3;
    position: absolute;
    top: 90%;
    left: 50%;
    transform: translate(-50%, -50%);
 }
-.atlas-logo{
+.tam-title{
     top: 35%;
+    font-size: 4em;
+    font-weight: 400;
+    width: fit-content;
+
 }
 
 .front-page-news{
@@ -26,8 +31,6 @@
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* border: 1px solid white; */
-    /* color: #CFB87C; */
     color: white;
     display: flex;
     justify-content: space-around;
@@ -35,12 +38,16 @@
 }
 
 .centered-subtitle-text > h3{
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 100;
     font-family: 'helveticaNeue-light';
     margin-left: 2em;
     margin-right: 2em;
 }
 
+#featured-works{
+    display: flex;
+    justify-content: space-around;
+}
 
 /* Mobile Styles */

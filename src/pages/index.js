@@ -2,10 +2,10 @@ import React from "react"
 import {graphql} from "gatsby"
 import Header from "../components/header"
 import Footer from '../components/Footer'
+import FeaturedGallery from "../components/featuredGallery";
 import SEO from "../components/seo"
 import Particles from 'react-particles-js'
 import ArrowDown from '../images/arrow-down.png';
-import ATLASlogo from '../images/atls-logo.png';
 
 import '../styles/page.css';
 import "../styles/home.css";
@@ -30,7 +30,7 @@ const particlesOptions = {
 
 function handleClick(){
   //scroll down 100% of the page
-  const height = document.body.scrollHeight - 800;
+  const height = document.body.scrollHeight - 1000;
   window.scroll({ top: height, left: 0 , behavior: 'smooth' });
 }
 
@@ -42,7 +42,7 @@ function IndexPage({data}){
       {/* Top front page */}
       <div id="front-page-image">
         <Particles className="particles" params={particlesOptions}/>
-        <img className="atlas-logo" src={ATLASlogo} alt="atlas intitute logo"/>
+        <h1 className="tam-title" > Technology, Arts & Media Program</h1>
         <div className="centered-subtitle-text" >
           <h3> INVENT</h3>
           <h3> DESIGN</h3>
@@ -67,6 +67,8 @@ function IndexPage({data}){
             <hr/>
           </div>
         ))}
+        {/* The featured works gallery here */}
+        <FeaturedGallery/>
       </div>
       <Footer/>
     </React.Fragment>
