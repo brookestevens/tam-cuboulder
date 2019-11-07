@@ -10,7 +10,6 @@ import arrowUP from "../images/arrow-down.png";
 function Header(){
   const[mobile, setMobile] = useState("screen");
   const[hidden, setHidden] = useState("hide");
-  const path = window.location.pathname;
   
   useEffect( () => {
     console.log("effect fired");
@@ -44,7 +43,7 @@ function Header(){
       <a className="header-links" href="https://twitter.com/tam_cu"> <img src={twitterLogo}  width= "35px" alt="twitter icon"/> </a>
       <a className="header-links" href="https://www.linkedin.com/groups/4398953"> <img src={linkedInLogo} width= "35px" alt="linked in icon" /> </a>
       <img onClick = {() => {
-        if(path === "/"){
+        if(window.location.pathname === "/"){
           document.getElementById("front-page-image").style.display = "block";  
         }
         setHidden("hide"); 
@@ -60,7 +59,7 @@ function Header(){
           <Link to="/"> <img id = "atls-logo" src={ATLSLogo} alt="ATLS logo" width="30%" /> </Link>
           <div onClick={ () => {
               setHidden("show");
-              if(path === "/"){
+              if(window.location.pathname === "/"){
                 document.getElementById("front-page-image").style.display = "none";
                 document.getElementsByClassName("mobile-index")[0].style.zIndex = "0";
                 document.getElementsByClassName("mobile-index")[1].style.zIndex = "0";  
