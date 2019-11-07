@@ -44,17 +44,20 @@ function Layout({ children, link }){
     }
     else{
       return(
+        <React.Fragment>
         <div className="side-menu-links">
           <SideMenu sublinks={sublinks}/>
         </div>
+        <hr/>
+        </React.Fragment>
       );
     }
   }
   
   return (
     <React.Fragment>
-      {renderSubLinks()}
       <Header siteTitle={data.site.siteMetadata.title} />
+      {renderSubLinks()}
       <div className="page-body-content">
         <main>{children}</main>
       </div>

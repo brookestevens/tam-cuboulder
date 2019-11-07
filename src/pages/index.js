@@ -42,13 +42,13 @@ function IndexPage({data}){
       {/* Top front page */}
       <div id="front-page-image">
         <Particles className="particles" params={particlesOptions}/>
-        <h1 className="tam-title" > Technology, Arts & Media Program</h1>
+        <h1 className="tam-title mobile-index" > Technology, Arts & Media Program</h1>
         <div className="centered-subtitle-text" >
           <h3> INVENT</h3>
           <h3> DESIGN</h3>
           <h3> CREATE</h3>
         </div>
-        <img onClick = {()=> handleClick()} className="scroll-arrow" src={ArrowDown}/> 
+        <img onClick = {()=> handleClick()} className="scroll-arrow mobile-index" src={ArrowDown}/> 
 
       </div>
       {/* Second part of the screen */}

@@ -536,34 +536,18 @@ p *:last-child {
 li > p {
   margin-bottom: calc(1.45rem / 2);
 }
-code {
-  font-size: 0.85rem;
-  line-height: 1.45rem;
-}
-kbd {
-  font-size: 0.85rem;
-  line-height: 1.45rem;
-}
 samp {
   font-size: 0.85rem;
   line-height: 1.45rem;
 }
-abbr {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
-}
-acronym {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
-}
-abbr[title] {
-  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-  cursor: help;
-  text-decoration: none;
-}
 
-@media only screen and (max-width: 480px) {
+/* MOBILE STYLES */
+
+@media only screen and (max-width: 480px){
   html {
     font-size: 100%;
+  }
+  .footer-tam-links{
+    flex-direction: column;
   }
 }

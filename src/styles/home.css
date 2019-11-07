@@ -49,5 +49,27 @@
     display: flex;
     justify-content: space-around;
 }
+  
 
 /* Mobile Styles */
+@media only screen and (max-width: 600px){
+    html {
+      font-size: 100%;
+    }
+    .particles{
+        height: 100vh;
+    }
+    .tam-title{
+        text-align: center;
+        font-size: 2em;
+    }
+    #featured-works{
+        flex-direction: column;
+    }
+    .footer-tam-links{
+      flex-direction: column;
+    }
+
+
+}
+

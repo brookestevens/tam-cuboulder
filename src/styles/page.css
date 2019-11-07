@@ -9,13 +9,17 @@
         background-color: white;
         color: black;
         border: 1px solid black;
+        letter-spacing: normal;
     }
     to   {
         background-color: black;
         color: white;
         border: 1px solid white;
+        letter-spacing: 2px;
     }
 }
+
+@keyframes hoverSublinks{}
 
 /* HEADER */
 
@@ -59,6 +63,67 @@ a > img{
     margin-bottom: 0px;
 }
 
+#mobile-menu-icon > img{
+    display: none;
+}
+#header-icons-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.up-arrow-mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 600px){
+    
+    .header-container{
+        height: 100vh;
+    }
+    .header-container.hide{
+        height: unset;
+    }
+    #atls-logo{
+        width: 40%;
+    }
+
+    #mobile-menu-icon > img{
+        display: inline-block;
+        width: 60px;
+        margin-bottom: 0px;
+    }
+    .up-arrow-mobile{
+        display: inline;
+        transform: rotate(180deg);
+    }
+
+    .header-links-flex.hide{
+        display: none;
+    }
+    .header-links-flex.show{
+        display: flex;
+    }
+    .header-links-flex{
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .header-links{
+        margin-bottom: 1em;
+        font-size: 1.5em;
+    }
+
+    .centered-subtitle-text{
+        flex-direction: column;
+        top: 70%;
+    }
+
+    .centered-subtitle-text > h3{
+        font-size: 1.5em;
+        text-align: center;
+    }
+}
 
 /* FEATURED WORKS FORM */
 
@@ -83,20 +148,21 @@ a > img{
          background-color: black;
          color: white;
          border: 1px solid white;
+         letter-spacing: 2px;
 }
 
 /* PAGE BODY */
 
 .page-body-content{
     margin:0 auto;
-    max-width: 960px;
+    max-width: 1080px;
     padding: 0px 1.0875rem 1.45rem;
     padding-top: 0;
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 1s; /* Firefox < 16 */
-     -ms-animation: fadein 1s; /* Internet Explorer */
-      -o-animation: fadein 1s; /* Opera < 12.1 */
-         animation: fadein 1s;
+    -webkit-animation: fadein 500ms; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 500ms; /* Firefox < 16 */
+     -ms-animation: fadein 500ms; /* Internet Explorer */
+      -o-animation: fadein 500ms; /* Opera < 12.1 */
+         animation: fadein 500ms;
 }
 
 main{
@@ -111,27 +177,39 @@ hr{
 /* SUB Links */
 
 .side-menu-links{
-    background-color: black;
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 25%;
-    width:15%;
     padding: 1.5em;
-    -webkit-animation: fadein 500ms; 
-    -moz-animation: fadein 500ms;
-     -ms-animation: fadein 500ms;
-      -o-animation: fadein 500ms; 
-         animation: fadein 500ms;
+    flex-wrap: wrap;
+    margin-left: 3em;
+    margin-right: 3em;
+    -webkit-animation: fadein 300ms; 
+    -moz-animation: fadein 300ms;
+     -ms-animation: fadein 300ms;
+      -o-animation: fadein 300ms; 
+         animation: fadein 300ms;
 }
 
-.sub-menu-links{
-    list-style-type: none;
+.submenu{
+    margin-top: 3em;
+    margin-right: 1%;
 }
 
 a.sub-menu-link{
-    color: white;
     text-decoration: none;
+    color: black;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+a.sub-menu-link:hover{
+    -webkit-animation: hoverButton 500ms; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: hoverButton 500ms; /* Firefox < 16 */
+     -ms-animation: hoverButton 500ms; /* Internet Explorer */
+      -o-animation: hoverButton 500ms; /* Opera < 12.1 */
+         animation: hoverButton 500ms;
+         letter-spacing: 2px;
+         background-color: black;
+         color: #CFB87C;
 }
 
 
@@ -238,3 +316,27 @@ button.active{
 .next-sem-courses{
     margin-top: 1.2em;
 }
+
+/* FEATURED WORKS PAGE */
+
+#featured-title, #featured-desc{
+    text-align: center;
+}
+
+#featured-gallery{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin-bottom: 1em;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
+    transition: 0.3s;
+}
+.card-content{
+    padding: .5em;
+}
+.card-content > h3{ margin : 5px;}
+.card-content > p{ margin: 5px; padding-left: 0px;}

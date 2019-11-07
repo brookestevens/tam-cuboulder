@@ -23,12 +23,10 @@ function SideMenu(props) {
     return (
         props.sublinks.map(i => (
             <React.Fragment key={i.link.meta_data.entity_id}>
-            <ul className="submenu">
-                <li className="sub-menu-links" style={{ color: 'white' }}>
-                    {renderLink(i.link.url, i.link.title)}
-                </li>
-                { i.subtree.length > 0 ?  <SideMenu sublinks={i.subtree}/> : null}
-            </ul>
+            <div className="submenu">
+                {renderLink(i.link.url, i.link.title)}
+            </div>
+            { i.subtree.length > 0 ?  <SideMenu sublinks={i.subtree}/> : null}
             </React.Fragment>
         ))
     );
