@@ -14,7 +14,6 @@ function Layout({ children, link }){
       .then(res => {
           if(!link) return false;
           for(let i = 0; i<res.length; i++){
-              console.log(res[i].link.title, link);
               if(res[i].link.title === link){
                   return res[i].subtree;
               }

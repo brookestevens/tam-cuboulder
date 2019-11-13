@@ -1,10 +1,19 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import {graphql} from 'gatsby';
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 import "../../styles/page.css"
 
 function FAQs({data}){
+    // const [answers, setAnswers] = useState([]);
+    useEffect(() => {
+      for(let i=0; i< data.allNodeQA.edges.length; i++){
+        var doc = new DOMParser().parseFromString(data.allNodeQA.edges[i].node.body.value, "text/html");
+        doc = doc.querySelector('body');
+        document.getElementById(`answer-${data.allNodeQA.edges[i].node.drupal_internal__nid}`).appendChild(doc);
+      }
+    },[data.allNodeQA.edges.length]);
+
     return(
       <Layout link="Resources">
         <SEO title="FAQs"/>
@@ -12,7 +21,7 @@ function FAQs({data}){
         {data.allNodeQA.edges.map( i=>( 
           <React.Fragment key={i.node.title}>
             <h3> {i.node.title} </h3>
-            <p> {i.node.body.value} </p>
+            <div id={`answer-${i.node.drupal_internal__nid}`}> </div>
             <hr/>
           </React.Fragment>
         ))}
@@ -29,9 +38,11 @@ export const query = graphql`
             value
           }
           title
+          drupal_internal__nid
         }
       }
     }
   }
-`;
+`
+
 export default FAQs;

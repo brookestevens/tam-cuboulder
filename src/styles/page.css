@@ -35,7 +35,7 @@ div.header-container{
     margin: 0 auto;
     max-width: 1080px;
     padding: 1.2rem;
-    font-family: 'helveticaNeue-light';
+    font-family: 'helveticaNeue-light', 'Arial', sans-serif;
 }
 
 .header-container  h1{
@@ -57,6 +57,11 @@ a.header-links{
 
 a.header-links:hover{
     color: #CFB87C;
+}
+
+a.current-main-menu{
+    color: #CFB87C;
+    text-decoration: underline;
 }
 
 a > img{
@@ -194,7 +199,7 @@ hr{
     margin-right: 1%;
 }
 
-a.sub-menu-link{
+.sub-menu-link{
     text-decoration: none;
     color: black;
     padding: 1em;
@@ -210,6 +215,12 @@ a.sub-menu-link:hover{
          letter-spacing: 2px;
          background-color: black;
          color: #CFB87C;
+}
+
+.current-path{
+    letter-spacing: 2px;
+    background-color: black;
+    color: #CFB87C;
 }
 
 
@@ -263,7 +274,7 @@ a.sub-menu-link:hover{
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 1rem;
-    max-width: 13rem;
+    max-width: 14rem;
 }
 .checkout-item-child img{
     display: block;
@@ -308,9 +319,10 @@ button.sort-button{
     width: 150px;
     height: 50px;
 }
-button.active{
-    color: white;
+
+button.current-sort{
     background-color: black;
+    color: white;
 }
 
 .next-sem-courses{
@@ -340,3 +352,16 @@ button.active{
 }
 .card-content > h3{ margin : 5px;}
 .card-content > p{ margin: 5px; padding-left: 0px;}
+
+/* Faculty and Staff */
+
+.faculty-container{
+    display: flex;
+}
+.faculty-container > img{
+    border-radius: 50%;
+}
+.faculty-content{
+    margin-left: 2em;
+}
+

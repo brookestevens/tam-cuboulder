@@ -22,7 +22,7 @@ function CheckoutPage({data}){
                     <img src={i.node.relationships.field_item_picture.uri.url} alt={i.node.field_item_picture.alt} width="200" height="200"/>
                     <h4> {i.node.title} </h4>
                     {i.node.relationships.field_checkout_manual ? 
-                      <a href={i.node.relationships.field_checkout_manual}> Manual </a>
+                      <a href={i.node.relationships.field_checkout_manual.uri.url}> Manual </a>
                     : "No Manual Available" }
                     
               </div>

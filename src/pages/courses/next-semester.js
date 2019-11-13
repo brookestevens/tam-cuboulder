@@ -27,13 +27,13 @@ function NextSemesterPage({ data }){
     function renderSortedCourses(){
       let results = data.allNodeCourse.edges;
       switch(sort){
-        case "Core":
+        case "core":
             results = results.filter( i => i.node.relationships.field_category.name === "Core" );
             break;
-        case "FE":
+        case "fe":
             results = results.filter( i => i.node.relationships.field_category.name === "Focus Elective" );
             break;
-        case "CPT":
+        case "cpt":
              results = results.filter( i => i.node.relationships.field_category.name === "CPT" );
              break;
         default:
@@ -49,15 +49,30 @@ function NextSemesterPage({ data }){
       );
     }
 
+    function handleClick(e){
+      let val = e.currentTarget.value;
+      setSort(val);
+      document.querySelectorAll('.sort-button').forEach( i => {
+        if(i.classList.length === 2 ){
+          i.classList.remove("current-sort");
+        }
+        if(val === i.value){
+          i.classList.add("current-sort");
+        }
+
+      });
+
+    }
+
     return (
       <Layout link="Courses">
         <SEO title="Next Semester"/>
         <h2> {getTitle()} </h2>
         <h3> Sort Classses </h3>
         <div className = "sort-buttons" >
-          <button className = "sort-button" onClick = {() => setSort("Core") }> Core </button>
-          <button className = "sort-button" onClick = {() => setSort("FE") } > Focus Electives </button>
-          <button className = "sort-button" onClick = {() => setSort("CPT") } > CPT </button>
+          <button value= "core" className = "sort-button current-sort" onClick = {(e) => handleClick(e) }> Core </button>
+          <button value= "fe" className = "sort-button" onClick = {e => handleClick(e) } > Focus Electives </button>
+          <button value= "cpt" className = "sort-button" onClick = {e => handleClick(e) } > CPT </button>
         </div>
         {renderSortedCourses()}
       </Layout>

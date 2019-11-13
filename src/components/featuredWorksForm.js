@@ -102,7 +102,11 @@ function FeaturedWorksUpload(){
             onChange = {e => handleChange(e)} 
             placeholder="Enter a description of your project here" rows= "10" cols="80"/>
           <br/>
-          Image of Project * MUST BE SQUARE! *
+          URL to Project Blog / Site
+          <br/>
+          <input name="projectUrl" value={formData.link} onChange={e => handleChange(e)} />
+          <br/>
+          Project Thumbnail (Image must be squre from 400px to 800px)
           <br/>
           <input type="file" 
             ref={fileInput} 

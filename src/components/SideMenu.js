@@ -1,23 +1,26 @@
 import PropTypes from "prop-types"
 import React from "react"
 import {Link} from "gatsby";
-//use this for hash links navigate('#id');
-import { navigate } from '@reach/router';
 
-
-// A recursively rendered module
-// URl is set in the menu builder on Drupal to location
-// Any ids are set in the content editor in Drupal too
+// A recursively rendered component
+// hashlinks are taken out due to site editor confusion
 
 function SideMenu(props) {
+    function setClasses(url){
+        if(url === window.location.pathname){
+            return "sub-menu-link current-path";
+        }
+        else return "sub-menu-link";
+    }
     function renderLink(url = "#", title){
+        let classes = setClasses(url);
         switch(url[0]){
             case "#":
-                return <a className="sub-menu-link" href={url}> {title} </a> //hash links
+                return <a className={classes} href={url}> {title} </a> //hash links
             case "/":
-                return <Link className="sub-menu-link" to={url}> {title} </Link> //internal routes
+                return <Link className={classes} to={url}> {title} </Link> //internal routes
             default:
-                return <a className="sub-menu-link" href={url}> {title} </a> //any external links
+                return <a className={classes} href={url}> {title} </a> //any external links
         }
     }
     return (
