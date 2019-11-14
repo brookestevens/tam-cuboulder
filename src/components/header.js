@@ -10,9 +10,22 @@ import arrowUP from "../images/arrow-down.png";
 function Header(){
   const[mobile, setMobile] = useState("screen");
   const[hidden, setHidden] = useState("hide");
-  
+ 
   useEffect( () => {
     window.addEventListener("resize", () => handleResize());
+
+    let mainNav = document.querySelectorAll('.header-links');
+    let path = (window.location.pathname).split('/' ,2);
+    let pattern = new RegExp(path[1]); //get the first directory level
+    for(let i = 0; i< mainNav.length; i++){
+      if(mainNav[i].hasAttribute("aria-current")){
+        mainNav[i].classList.add("current-main-menu");
+      }
+      else if(pattern.test(mainNav[i].href)){
+        mainNav[i].classList.add("current-main-menu");
+      }
+    } 
+    
   },[]);
 
   function handleResize(){
@@ -25,28 +38,16 @@ function Header(){
     }
   }
 
-  function setClasses(url){
-    let path = (window.location.pathname).split('/' ,2);
-    let pattern = new RegExp(path[1]); //get the first directory level
-    if(path[1] === ""){ //home path
-      return "header-links";
-    }
-    else if(pattern.test(url)){
-      return "header-links current-main-menu";
-    }
-    else return "header-links";
-  }
-
   function renderMenu(){
     return (
       <div className={`header-links-flex ${mobile} ${hidden}`}>
-      <Link className= {setClasses("/programs/major")} to="/programs/major"> Programs </Link>
-      <Link className= {setClasses("/courses/current")}   to="/courses/current"> Courses </Link>
-      <Link className= {setClasses("/featured-work")}   to="/featured-work"> Featured Work </Link>
-      <Link className= {setClasses("/advising")}   to="/advising"> Advising </Link>
-      <Link className= {setClasses("/people/faculty")}   to="/people/faculty"> People </Link>
-      <Link className= {setClasses("/student-groups")}   to="/student-groups"> Student Groups </Link>
-      <Link className= {setClasses("/resources/checkout")}   to="/resources/checkout"> Resources </Link>
+      <Link className= "header-links"  to="/programs/major"> Programs </Link>
+      <Link className= "header-links"  to="/courses/current"> Courses </Link>
+      <Link className= "header-links"  to="/featured-work"> Featured Work </Link>
+      <Link className= "header-links"  to="/advising"> Advising </Link>
+      <Link className= "header-links"  to="/people/faculty"> People </Link>
+      <Link className= "header-links"  to="/student-groups"> Student Groups </Link>
+      <Link className= "header-links"  to="/resources/checkout"> Resources </Link>
       {/* Add any extra menu links here! */}
 
       {/* Social Media Links */}

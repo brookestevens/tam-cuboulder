@@ -49,13 +49,13 @@ div.header-container{
     align-items: center;
 }
 
-a.header-links{
+.header-links{
     color: white;
     text-decoration: none;
     padding-top: 1%;
 }
 
-a.header-links:hover{
+.header-links:hover{
     color: #CFB87C;
 }
 
