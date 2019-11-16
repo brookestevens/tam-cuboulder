@@ -47,12 +47,13 @@
 
 #featured-works{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
   
 
 /* Mobile Styles */
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 670px){
     html {
       font-size: 100%;
     }
@@ -69,7 +70,6 @@
     .footer-tam-links{
       flex-direction: column;
     }
-
 
 }
 

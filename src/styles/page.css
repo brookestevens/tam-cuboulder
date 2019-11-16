@@ -81,55 +81,6 @@ a > img{
     display: none;
 }
 
-@media only screen and (max-width: 600px){
-    
-    .header-container{
-        height: 100vh;
-    }
-    .header-container.hide{
-        height: unset;
-    }
-    #atls-logo{
-        width: 40%;
-    }
-
-    #mobile-menu-icon > img{
-        display: inline-block;
-        width: 60px;
-        margin-bottom: 0px;
-    }
-    .up-arrow-mobile{
-        display: inline;
-        transform: rotate(180deg);
-    }
-
-    .header-links-flex.hide{
-        display: none;
-    }
-    .header-links-flex.show{
-        display: flex;
-    }
-    .header-links-flex{
-        height: 100%;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .header-links{
-        margin-bottom: 1em;
-        font-size: 1.5em;
-    }
-
-    .centered-subtitle-text{
-        flex-direction: column;
-        top: 70%;
-    }
-
-    .centered-subtitle-text > h3{
-        font-size: 1.5em;
-        text-align: center;
-    }
-}
-
 /* FEATURED WORKS FORM */
 
 #submit-project-form input, textarea{
@@ -163,11 +114,11 @@ a > img{
     max-width: 1080px;
     padding: 0px 1.0875rem 1.45rem;
     padding-top: 0;
-    -webkit-animation: fadein 500ms; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 500ms; /* Firefox < 16 */
-     -ms-animation: fadein 500ms; /* Internet Explorer */
-      -o-animation: fadein 500ms; /* Opera < 12.1 */
-         animation: fadein 500ms;
+    -webkit-animation: fadein 300ms; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 300ms; /* Firefox < 16 */
+     -ms-animation: fadein 300ms; /* Internet Explorer */
+      -o-animation: fadein 300ms; /* Opera < 12.1 */
+         animation: fadein 300ms;
 }
 
 main{
@@ -187,11 +138,11 @@ hr{
     flex-wrap: wrap;
     margin-left: 3em;
     margin-right: 3em;
-    -webkit-animation: fadein 300ms; 
-    -moz-animation: fadein 300ms;
-     -ms-animation: fadein 300ms;
-      -o-animation: fadein 300ms; 
-         animation: fadein 300ms;
+    -webkit-animation: fadein 100ms; 
+    -moz-animation: fadein 100ms;
+     -ms-animation: fadein 100ms;
+      -o-animation: fadein 100ms; 
+         animation: fadein 100ms;
 }
 
 .submenu{
@@ -258,7 +209,11 @@ a.sub-menu-link:hover{
     list-style-type: none;
     font-size: 90%;
     color: #CFB87C;
+}
 
+.footer-tam-links li > a{
+    font-size: 90%;
+    color: #CFB87C;
 }
 
 /* CHECKOUT ITEMS PAGE */
@@ -365,3 +320,85 @@ button.current-sort{
     margin-left: 2em;
 }
 
+/* Mobile styles */
+@media only screen and (max-width: 670px){
+    html {
+      font-size: 100%;
+    }
+    .footer-tam-links{
+      flex-direction: column;
+      text-align: center;
+    }
+    ul{
+      margin-left: 1em;
+    }
+      
+    .header-container{
+        height: 100vh;
+    }
+    .header-container.hide{
+        height: unset;
+    }
+    #atls-logo{
+        width: 40%;
+    }
+  
+    #mobile-menu-icon > img{
+        display: inline-block;
+        width: 60px;
+        margin-bottom: 0px;
+    }
+    .up-arrow-mobile{
+        display: inline;
+        transform: rotate(180deg);
+    }
+  
+    .header-links-flex.hide{
+        display: none;
+    }
+    .header-links-flex.show{
+        display: flex;
+    }
+    .header-links-flex{
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .header-links{
+        margin-bottom: 1em;
+        font-size: 1.5em;
+    }
+  
+    .centered-subtitle-text{
+        flex-direction: column;
+        top: 70%;
+    }
+  
+    .centered-subtitle-text > h3{
+        font-size: 1.5em;
+        text-align: center;
+    }
+  
+    .side-menu-links{
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 1.5em;
+    }
+
+    #featured-gallery{
+        padding-left: 1.5em;
+    }
+
+    .faculty-container > img{
+        margin-left: 20%;
+    }
+
+    #submit-project-form > input {
+        border: 1px solid black;
+    }
+    #submit-project-form > textarea {
+        border: 1px solid black;
+        width: 100%;
+    }
+  }

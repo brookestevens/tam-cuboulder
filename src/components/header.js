@@ -5,7 +5,6 @@ import twitterLogo from "../images/twitter-icon.png";
 import facebookLogo from "../images/facebook-icon.png";
 import linkedInLogo from "../images/linked-in-icon.png";
 import Hamburger from "../images/hamburger-menu.png";
-import arrowUP from "../images/arrow-down.png";
 
 function Header(){
   const[mobile, setMobile] = useState("screen");
@@ -13,28 +12,46 @@ function Header(){
  
   useEffect( () => {
     window.addEventListener("resize", () => handleResize());
-
     let mainNav = document.querySelectorAll('.header-links');
     let path = (window.location.pathname).split('/' ,2);
     let pattern = new RegExp(path[1]); //get the first directory level
-    for(let i = 0; i< mainNav.length; i++){
-      if(mainNav[i].hasAttribute("aria-current")){
-        mainNav[i].classList.add("current-main-menu");
-      }
-      else if(pattern.test(mainNav[i].href)){
-        mainNav[i].classList.add("current-main-menu");
-      }
-    } 
-    
+    if(path[1] === ""){
+      return;
+    }
+    else{
+      for(let i = 0; i< mainNav.length; i++){
+        if(mainNav[i].hasAttribute("aria-current")){
+          mainNav[i].classList.add("current-main-menu");
+        }
+        else if(pattern.test(mainNav[i].href)){
+          mainNav[i].classList.add("current-main-menu");
+        }
+      } 
+    }
   },[]);
 
   function handleResize(){
-    console.log("width: ", window.innerWidth);
     if(window.innerWidth <= 600){
       setMobile("mobile");
     }
     else if(window.innerWidth > 600){
       setMobile("screen");
+    }
+  }
+  function handleClick(){
+    if(hidden == "hide"){
+      setHidden("show");
+      if(window.location.pathname === "/"){
+        document.getElementById("front-page-image").style.display = "none";
+        document.getElementsByClassName("mobile-index")[0].style.zIndex = "0";
+        document.getElementsByClassName("mobile-index")[1].style.zIndex = "0";  
+      }
+    }
+    else{
+      if(window.location.pathname === "/"){
+        document.getElementById("front-page-image").style.display = "block";  
+      }
+      setHidden("hide"); 
     }
   }
 
@@ -54,13 +71,6 @@ function Header(){
       <a className="header-links" href="https://www.facebook.com/TechnologyArtsMedia"> <img src={facebookLogo} width= "35px" alt="facebook icon"/> </a>
       <a className="header-links" href="https://twitter.com/tam_cu"> <img src={twitterLogo}  width= "35px" alt="twitter icon"/> </a>
       <a className="header-links" href="https://www.linkedin.com/groups/4398953"> <img src={linkedInLogo} width= "35px" alt="linked in icon" /> </a>
-      <img onClick = {() => {
-        if(window.location.pathname === "/"){
-          document.getElementById("front-page-image").style.display = "block";  
-        }
-        setHidden("hide"); 
-        }}
-        className="up-arrow-mobile" width="40px" height="40px" src={arrowUP} alt="close mobile menu button"/>
     </div>
     );
   }
@@ -69,14 +79,7 @@ function Header(){
       <div className={`header-container ${hidden}`}>
         <div id="header-icons-flex">
           <Link to="/"> <img id = "atls-logo" src={ATLSLogo} alt="ATLS logo" width="30%" /> </Link>
-          <div onClick={ () => {
-              setHidden("show");
-              if(window.location.pathname === "/"){
-                document.getElementById("front-page-image").style.display = "none";
-                document.getElementsByClassName("mobile-index")[0].style.zIndex = "0";
-                document.getElementsByClassName("mobile-index")[1].style.zIndex = "0";  
-              }
-            }} 
+          <div onClick={ () => handleClick() } 
             id="mobile-menu-icon">
             <img src={Hamburger}/>
           </div>

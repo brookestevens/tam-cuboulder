@@ -12,7 +12,7 @@ function Footer(){
             <hr/>
             <div className="footer-tam-links">
                 <div>
-                    <h3> Technology Arts and Media</h3>
+                    <h3> Technology, Arts, & Media</h3>
                     <ul>
                         <li>Atlas Institute</li>
                         <li>University of Colorado Boulder</li>
@@ -25,8 +25,8 @@ function Footer(){
                     <ul>
                         <li> Email: tamprogram@colorado.edu</li>
                         <li> Call: 303-735-4834</li>
-                        <li> Facebook</li>
-                        <li> Twitter </li>
+                        <li> <a href="https://www.facebook.com/TechnologyArtsMedia"> Facebook </a> </li>
+                        <li> <a href="https://twitter.com/tam_cu" > Twitter </a> </li>
                     </ul>
                 </div>
                 <div>
@@ -52,7 +52,6 @@ function Footer(){
                     />
                 </div>
             </div>
-        <span> © {new Date().getFullYear()}, Built with {` `} Gatsby | Powered by Drupal </span>
         </footer>
     );
 }

@@ -12,12 +12,10 @@ function StudentGroupsPage({data}){
         let doc = new DOMParser();
         let arr = [];
         for(let i = 0; i<data.allNodeStudentGroup.nodes.length; i++){
-            //console.log(data.allNodeStudentGroup.nodes[i].body.value);
             doc = new DOMParser().parseFromString(data.allNodeStudentGroup.nodes[i].body.value, 'text/html').querySelector('body > p').innerHTML;
             arr.push(doc);
         }
         setDescription([...description, ...arr ]);
-        console.log("added descriptions");
   }, []);
   if(description.length === 0){
     return <p> Loading Groups...</p>

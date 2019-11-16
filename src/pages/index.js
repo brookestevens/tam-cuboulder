@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import {graphql} from "gatsby"
 import Header from "../components/header"
 import Footer from '../components/Footer'
@@ -30,11 +30,17 @@ const particlesOptions = {
 
 function handleClick(){
   //scroll down 100% of the page
-  const height = document.body.scrollHeight - 1000;
-  window.scroll({ top: height, left: 0 , behavior: 'smooth' });
+  window.scroll({ top: window.innerHeight+20, left: 0 , behavior: 'smooth' });
 }
 
 function IndexPage({data}){
+  useEffect( () => {
+    for(let i=0; i< data.allNodePage.nodes.length; i++ ){
+      var doc = new DOMParser().parseFromString(data.allNodePage.nodes[i].body.value, "text/html").querySelector("body");
+      document.getElementById(`content-${data.allNodePage.nodes[i].drupal_internal__nid}`).appendChild(doc);
+    }
+  }, [data.allNodePage.nodes]);
+
   return(
     <React.Fragment>
       <SEO title="Home" />
@@ -63,7 +69,7 @@ function IndexPage({data}){
         {data.allNodePage.nodes.map( i => (
           <div key = {i.title}>
             <h3>{i.title}</h3>
-            <p> {i.body.value} </p>
+            <div id = {`content-${i.drupal_internal__nid}`}></div>
             <hr/>
           </div>
         ))}
@@ -80,6 +86,7 @@ export const query = graphql`
     allNodePage(filter: {promote: {eq: true}}) {
       nodes {
         title
+        drupal_internal__nid
         body {
           value
         }
