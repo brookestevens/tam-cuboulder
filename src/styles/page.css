@@ -59,6 +59,10 @@ div.header-container{
     color: #CFB87C;
 }
 
+#social-icons-div > a{
+    padding-right: .5em;
+}
+
 a.current-main-menu{
     color: #CFB87C;
     text-decoration: underline;
@@ -368,6 +372,10 @@ button.current-sort{
         margin-bottom: 1em;
         font-size: 1.5em;
     }
+
+    #social-icons-div > a{
+        padding-right: 1em;
+    }
   
     .centered-subtitle-text{
         flex-direction: column;
@@ -389,7 +397,9 @@ button.current-sort{
     #featured-gallery{
         padding-left: 1.5em;
     }
-
+    .faculty-container{
+        flex-wrap: wrap;
+    }
     .faculty-container > img{
         margin-left: 20%;
     }

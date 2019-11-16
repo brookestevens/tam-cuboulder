@@ -7,7 +7,7 @@ import {Link} from "gatsby";
 
 function SideMenu(props) {
     function setClasses(url){
-        if(url === window.location.pathname){
+        if(url === window.location.pathname || url === window.location.pathname + '/'){
             return "sub-menu-link current-path";
         }
         else return "sub-menu-link";
