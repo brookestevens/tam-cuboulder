@@ -18,7 +18,7 @@ function FacultyPage({data}){
         <SEO title="Faculty"/>
         <h2> Faculty </h2>
         {data.allNodeFacultyMember.edges.map( i => (
-          <div className="faculty-container" >
+          <div key={i.node.title} className="faculty-container" >
             <img src={i.node.relationships.field_photo.uri.url} 
               alt="tam instructor" height="200" width="200"/>
             <div className="faculty-content" >  
