@@ -26,16 +26,16 @@ function FeaturedWorksUpload(){
     size: null
   });
 
+
   function handleImageUpload(img){
     //do all processing here
     var reader = new FileReader();
     reader.readAsDataURL(img);
     reader.onloadend = (e) => {
         if (e.target.readyState === reader.DONE) { //2 means finished loading
-            // console.log(e.target.result);
             setImage({
                 ...image,
-              stream: e.target.result.replace('data:image/jpeg;base64,',''),
+              stream: e.target.result.split(/data:image\/[a-z]{3,4};base64,/)[1],
               name: img.name,
               type: img.type,
               size: img.size
@@ -106,14 +106,14 @@ function FeaturedWorksUpload(){
           <br/>
           <input name="projectUrl" value={formData.link} onChange={e => handleChange(e)} />
           <br/>
-          Project Thumbnail (Image must be squre from 400px to 800px)
+          Project Thumbnail (Image must be square from 400px to 800px)
           <br/>
           <input type="file" 
             ref={fileInput} 
             accept="image/jpg, image/jpeg, image/png" 
             onChange = {e => handleImageUpload((e.target.files)[0])} />
           <br/>
-          {image.stream ? <img src= {"data:image/jpeg;base64," + image.stream} alt="upload" width= "100" height="100" onLoad={ e => handleLoad(e)}/> : null}
+          {image.stream ? <img src= {"data:"+ image.type + ";base64," + image.stream} alt="upload" width= "100" height="100" onLoad={ e => handleLoad(e)}/> : null}
           <br/>
           <button className="submit-project-button" onClick = { () => handleClick()} > Submit </button>
         </div>

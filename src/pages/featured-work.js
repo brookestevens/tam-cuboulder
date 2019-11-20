@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {graphql} from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 function FeaturedPage({data}) {
+    useEffect(() => {
+      for(let i =0; i < data.allNodeFeaturedWork.edges.length; i++){
+        var doc = new DOMParser().parseFromString(data.allNodeFeaturedWork.edges[i].node.body.value, "text/html");
+        doc = doc.querySelector('body');
+        document.getElementById(`desc-${data.allNodeFeaturedWork.edges[i].node.drupal_internal__nid}`).appendChild(doc);
+      }
+    },[data.allNodeFeaturedWork.edges]);
     return (
         <Layout link={null}>
             <SEO title="Featured Works" />
@@ -19,7 +26,8 @@ function FeaturedPage({data}) {
                         <div className="card-content">
                             <h3 onClick = { () => window.location = i.node.field_project_link.uri }> {i.node.title} </h3>
                             <p> <strong> Class: </strong> {i.node.field_class_name} </p>
-                            <p> <strong> {i.node.field_name} </strong> {i.node.body.value} </p>
+                            <p> <strong> {i.node.field_name}: </strong> </p>
+                            <div style = {{marginLeft : "5px"}} id= {"desc-"+i.node.drupal_internal__nid}> </div>
                         </div>
                     </div>
                 ))}
@@ -51,6 +59,7 @@ export const query = graphql`
           }
           field_name
           field_class_name
+          drupal_internal__nid
         }
       }
     }
