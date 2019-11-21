@@ -17,7 +17,7 @@ function StaffPage({data}){
           <SEO title="Staff"/>
           <h2>Staff</h2>
           {data.allNodeFacultyMember.edges.map( i => (
-            <div key= {i.node.drupal_internal__nid} className= "faculty-container" key={i.node.drupal_internal__nid}>
+            <div key= {i.node.drupal_internal__nid} className= "faculty-container" >
               <img src={i.node.relationships.field_photo.uri.url} 
                 alt="tam instructor" height="200" width="200"/>
               <div className="faculty-content">  

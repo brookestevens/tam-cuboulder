@@ -15,7 +15,6 @@ function Header(){
   useEffect( () => {
     window.addEventListener("resize", () => handleResize());
     let mainNav = document.querySelectorAll('.header-links');
-    console.log("links: ", mainNav);
     let path = (window.location.pathname).split('/' ,2);
     let pattern = new RegExp(path[1]); //get the first directory level
     if(path[1] === ""){
@@ -46,7 +45,7 @@ function Header(){
 
   }
   function handleClick(){
-    if(hidden == "hide"){
+    if(hidden === "hide"){
       setHidden("show");
       if(window.location.pathname === "/"){
         document.getElementById("front-page-image").style.display = "none";
@@ -88,9 +87,9 @@ function Header(){
         <Link to="/people/faculty"> People </Link>
         <Link to="/student-groups"> Student Groups </Link>
         <Link to="/resources/checkout"> Resources </Link>
-        <a href="">Facebook</a>
-        <a href="">Twitter</a>
-        <a href="">LinkedIn</a>
+        <a href="https://www.facebook.com/TechnologyArtsMedia">Facebook</a>
+        <a href="https://twitter.com/tam_cu">Twitter</a>
+        <a href="https://www.linkedin.com/groups/4398953">LinkedIn</a>
       </div>
 
     </div>
@@ -103,7 +102,7 @@ function Header(){
           <Link to="/"> <img id = "atls-logo" src={ATLSLogo} alt="ATLS logo" width="30%" /> </Link>
           <div onClick={ () => handleClick() } 
             id="mobile-menu-icon">
-            <img src={Hamburger}/>
+            <img alt="mobile hamburger menu" src={Hamburger}/>
           </div>
         </div>
         {renderMenu()}

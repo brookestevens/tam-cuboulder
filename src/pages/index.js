@@ -54,7 +54,7 @@ function IndexPage({data}){
           <h3> DESIGN</h3>
           <h3> CREATE</h3>
         </div>
-        <img onClick = {()=> handleClick()} className="scroll-arrow mobile-index" src={ArrowDown}/> 
+        <img alt="scroll down arrow" onClick = {()=> handleClick()} className="scroll-arrow mobile-index" src={ArrowDown}/> 
 
       </div>
       {/* Second part of the screen */}

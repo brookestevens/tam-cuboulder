@@ -10,6 +10,7 @@ function FeaturedGallery(){
             title
             field_name
             field_class_name
+            drupal_internal__nid
             body {
                 value
             }
@@ -35,7 +36,7 @@ function FeaturedGallery(){
             and submit your own work <a href="/resources/submit"> here </a> </p>
         <div id="featured-works">
             {data.allNodeFeaturedWork.edges.map( i => (
-                <div className = "featured-project" >
+                <div key={`project-id-${i.node.drupal_internal__nid}`} className = "featured-project" >
                     <img src={i.node.relationships.field_project_picture.uri.url} width="300" height="300" alt="student submitted project"/>
                     <h3>{i.node.title}</h3>
                     <p>{i.node.field_name}</p>

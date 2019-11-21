@@ -9,14 +9,15 @@ function StudentGroupsPage({data}){
 
   useEffect( () => {
     //set state of just descriptions
+      console.log("effect fired - student groups");
         let doc = new DOMParser();
         let arr = [];
         for(let i = 0; i<data.allNodeStudentGroup.nodes.length; i++){
             doc = new DOMParser().parseFromString(data.allNodeStudentGroup.nodes[i].body.value, 'text/html').querySelector('body > p').innerHTML;
             arr.push(doc);
         }
-        setDescription([...description, ...arr ]);
-  }, []);
+        setDescription( d => [...d, ...arr]);
+  }, [data.allNodeStudentGroup.nodes]);
   if(description.length === 0){
     return <p> Loading Groups...</p>
   }

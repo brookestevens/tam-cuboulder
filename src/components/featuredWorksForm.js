@@ -104,7 +104,7 @@ function FeaturedWorksUpload(){
           <br/>
           URL to Project Blog / Site
           <br/>
-          <input name="projectUrl" value={formData.link} onChange={e => handleChange(e)} />
+          <input name="link" value={formData.link} onChange={e => handleChange(e)} />
           <br/>
           Project Thumbnail (Image must be square from 400px to 800px)
           <br/>

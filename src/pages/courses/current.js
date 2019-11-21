@@ -20,7 +20,7 @@ function CourseTitle(props) {
                         <th>Status</th>
                     </tr>
                     {classes.map(i => (
-                        <tr>
+                        <tr key= {`table-row-${classes.indexOf(i)}`} >
                             <td> {i.schd} </td>
                             <td> {i.instr} </td>
                             <td> {i.meets} </td>
@@ -77,7 +77,7 @@ function CurrentCoursesPage() {
                 }
                 return temp;
             })
-            .then(sorted => setClasses([...classes, ...sorted]))
+            .then(sorted => setClasses(c => [...c, ...sorted]))
             .catch(err => console.log(err));
     }, []);
     return (
@@ -85,7 +85,7 @@ function CurrentCoursesPage() {
             <SEO title="Current Courses" />
             <h2>Current Courses</h2>
             { classes.length === 0 ? <p> Courses Loading ... please wait </p> : classes.map(i => (
-                <div className="course-info">
+                <div className="course-info" key={`course-${classes.indexOf(i)}`}>
                     <CourseTitle title={i.title} code={i.code} crn={i.crn} />
                 </div>
             ))}

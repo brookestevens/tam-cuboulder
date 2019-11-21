@@ -21,8 +21,8 @@ function FeaturedPage({data}) {
             <hr/>
             <div id="featured-gallery">
                 {data.allNodeFeaturedWork.edges.map(i => (
-                    <div className="card">
-                        <img onClick = { () => window.location = i.node.field_project_link.uri } src={i.node.relationships.field_project_picture.uri.url} height="300" width="300"/>
+                    <div className="card" key={`project-${i.node.drupal_internal__nid}`}>
+                        <img alt="student submitted project thumbnail" onClick = { () => window.location = i.node.field_project_link.uri } src={i.node.relationships.field_project_picture.uri.url} height="300" width="300"/>
                         <div className="card-content">
                             <h3 onClick = { () => window.location = i.node.field_project_link.uri }> {i.node.title} </h3>
                             <p> <strong> Class: </strong> {i.node.field_class_name} </p>

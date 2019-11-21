@@ -8,6 +8,7 @@ import SideMenu from "./SideMenu"
 
 function Layout({ children, link }){
   const [sublinks, setSubLinks] = useState([]);
+  console.log("effect fired - Layout");
   useEffect(()=>{
       fetch('/entity/menu/site-menu-gatsby/tree')
       .then(res => res.json())
@@ -21,10 +22,10 @@ function Layout({ children, link }){
           return false;
       })
       .then(subtree => {
-          subtree ? setSubLinks([...sublinks, ...subtree]) : console.log("No Sub-menu found"); 
+          subtree ? setSubLinks( s => [...s, ...subtree]) : console.log("No Sub-menu found"); 
       })
       .catch(err => console.log(err));
-  }, []);
+  },[link]);
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {

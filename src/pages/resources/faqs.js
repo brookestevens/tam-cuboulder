@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useEffect} from 'react';
 import {graphql} from 'gatsby';
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
@@ -12,7 +12,7 @@ function FAQs({data}){
         doc = doc.querySelector('body');
         document.getElementById(`answer-${data.allNodeQA.edges[i].node.drupal_internal__nid}`).appendChild(doc);
       }
-    },[data.allNodeQA.edges.length]);
+    },[data.allNodeQA.edges.length, data.allNodeQA.edges]);
 
     return(
       <Layout link="Resources">

@@ -7,9 +7,10 @@ import "../styles/page.css"
 function AdvisingPage({data}){
   
   useEffect( () => {
+    console.log("effect fired");
     const doc = new DOMParser().parseFromString(data.allNodePage.nodes[0].body.value, "text/html").querySelector("body");
     document.getElementById("body-content").appendChild(doc);
-  }, [data.allNodePage.nodes[0].body.value])
+  }, [data.allNodePage.nodes])
   
   return (
     <Layout link={null}>
