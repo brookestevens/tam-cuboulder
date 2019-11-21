@@ -8,34 +8,43 @@ function CourseTitle(props) {
     const [clicked, setClicked] = useState(false);
     const [classes, setClasses] = useState([]);
     function renderDetails() {
-        if (classes.length > 0) {
-            return (
-                <div className="course-details">
-                    <table className="details-table">
+        return (
+            <div className="course-details">
+                <table className="details-table">
+                <tbody>
                     <tr>
                         <th>Lec/Rec</th>
                         <th>Instructor</th>
+                        <th>Meeting Times </th>
+                        <th>Section </th>
                         <th>Status</th>
                     </tr>
                     {classes.map(i => (
                         <tr>
                             <td> {i.schd} </td>
                             <td> {i.instr} </td>
+                            <td> {i.meets} </td>
+                            <td> {i.no} </td>
                             <td> {i.stat} </td>
                         </tr>
                     ))}
-                    </table>
-                </div>
-            );
-        }
+                </tbody>
+                </table>
+            </div>
+        );
     }
     function handleClick(code, crn) {
         code = encodeURIComponent(code);
-        fetch(`/api/getCourseDetails?courseID=${code}&crn=${crn}`)
-            .then(res => res.json())
-            .then(res => setClasses(res.allInGroup))
-            .then(() => setClicked(!clicked))
-            .catch(err => console.log(err));
+        if(!clicked){
+            fetch(`/api/getCourseDetails?courseID=${code}&crn=${crn}`)
+                .then(res => res.json())
+                .then(res => setClasses(res.allInGroup))
+                .then(() => setClicked(!clicked))
+                .catch(err => console.log(err));
+        }
+        else{
+            setClicked(!clicked);
+        }
     }
 
     return (
@@ -58,10 +67,12 @@ function CurrentCoursesPage() {
             .then(res => res.json())
             .then(res => {
                 let temp = [];
+                let prevName = res.results[0].title;
                 for (let i = 0; i < res.results.length; i++) {
-                    if (res.results[i].schd === "REC") continue;
+                    if (prevName === res.results[i].title) continue;
                     else {
                         temp.push(res.results[i]);
+                        prevName = res.results[i].title;
                     }
                 }
                 return temp;
@@ -69,12 +80,11 @@ function CurrentCoursesPage() {
             .then(sorted => setClasses([...classes, ...sorted]))
             .catch(err => console.log(err));
     }, []);
-
     return (
         <Layout link="Courses">
             <SEO title="Current Courses" />
             <h2>Current Courses</h2>
-            {classes.map(i => (
+            { classes.length === 0 ? <p> Courses Loading ... please wait </p> : classes.map(i => (
                 <div className="course-info">
                     <CourseTitle title={i.title} code={i.code} crn={i.crn} />
                 </div>

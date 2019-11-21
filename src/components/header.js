@@ -5,14 +5,17 @@ import twitterLogo from "../images/twitter-icon.png";
 import facebookLogo from "../images/facebook-icon.png";
 import linkedInLogo from "../images/linked-in-icon.png";
 import Hamburger from "../images/hamburger-menu.png";
+import MoreArrow from "../images/arrow-down.png";
 
 function Header(){
   const[mobile, setMobile] = useState("screen");
   const[hidden, setHidden] = useState("hide");
+  const[tablet, setTablet] = useState("no-tab");
  
   useEffect( () => {
     window.addEventListener("resize", () => handleResize());
     let mainNav = document.querySelectorAll('.header-links');
+    console.log("links: ", mainNav);
     let path = (window.location.pathname).split('/' ,2);
     let pattern = new RegExp(path[1]); //get the first directory level
     if(path[1] === ""){
@@ -31,12 +34,16 @@ function Header(){
   },[]);
 
   function handleResize(){
-    if(window.innerWidth <= 600){
+    let w = window.innerWidth;
+    if(w <= 600){
       setMobile("mobile");
+      setTablet("no-tab");
     }
-    else if(window.innerWidth > 600){
+    else{
       setMobile("screen");
+      setTablet("no-tab");
     }
+
   }
   function handleClick(){
     if(hidden == "hide"){
@@ -62,9 +69,9 @@ function Header(){
       <Link className= "header-links"  to="/courses/current"> Courses </Link>
       <Link className= "header-links"  to="/featured-work"> Featured Work </Link>
       <Link className= "header-links"  to="/advising"> Advising </Link>
-      <Link className= "header-links"  to="/people/faculty"> People </Link>
-      <Link className= "header-links"  to="/student-groups"> Student Groups </Link>
-      <Link className= "header-links"  to="/resources/checkout"> Resources </Link>
+      <Link className= "header-links drop"  to="/people/faculty"> People </Link>
+      <Link className= "header-links drop"  to="/student-groups"> Student Groups </Link>
+      <Link className= "header-links drop"  to="/resources/checkout"> Resources </Link>
       {/* Add any extra menu links here! */}
 
       {/* Social Media Links */}
@@ -73,6 +80,19 @@ function Header(){
         <a className="header-links" href="https://twitter.com/tam_cu"> <img src={twitterLogo}  width= "35px" alt="twitter icon"/> </a>
         <a className="header-links" href="https://www.linkedin.com/groups/4398953"> <img src={linkedInLogo} width= "35px" alt="linked in icon" /> </a>
       </div>
+      {/* OTHER TABS */}
+      <img id="show-more-icon" src={MoreArrow} alt="More Items Button" height="35" width="35" onClick = 
+        {() => tablet === "no-tab" ? setTablet("show-tab") : setTablet("no-tab")}/>
+      
+      <div id="dropdown-content" className = {tablet}>
+        <Link to="/people/faculty"> People </Link>
+        <Link to="/student-groups"> Student Groups </Link>
+        <Link to="/resources/checkout"> Resources </Link>
+        <a href="">Facebook</a>
+        <a href="">Twitter</a>
+        <a href="">LinkedIn</a>
+      </div>
+
     </div>
     );
   }

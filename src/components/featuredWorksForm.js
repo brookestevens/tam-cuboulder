@@ -16,7 +16,7 @@ function FeaturedWorksUpload(){
     title: null,
     class: null,
     description: null,
-    link: "https://google.com",
+    link: null
   });
 
   const [image, setImage] = useState({
@@ -70,9 +70,9 @@ function FeaturedWorksUpload(){
       setImage({...image, stream: null, name: null, type: null, size: null});
       alert("Image must be a square");
     }
-    if( w < 500 || w > 800){
+    if( w < 400 || w > 800){
       setImage({...image, stream: null, name: null, type: null, size: null});
-      alert("Image is too big or small. It mst be 400 x 400 to 800 x 800 pixels");
+      alert("Image is too big or small. It must be 400 x 400 to 800 x 800 pixels");
     }
   }
 

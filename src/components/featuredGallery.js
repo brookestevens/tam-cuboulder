@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 function FeaturedGallery(){
     const data = useStaticQuery(graphql`
     {
-        allNodeFeaturedWork {
+        allNodeFeaturedWork(limit: 4) {
         edges {
             node {
             title
