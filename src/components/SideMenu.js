@@ -20,7 +20,7 @@ function SideMenu(props) {
             case "/":
                 return <Link className={classes} to={url}> {title} </Link> //internal routes
             default:
-                return <a className={classes} href={url}> {title} </a> //any external links
+                return <a className={classes} href={url} target='_blank'> {title} </a> //any external links
         }
     }
     return (

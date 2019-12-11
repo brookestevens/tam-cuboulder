@@ -40,7 +40,7 @@
 .centered-subtitle-text > h3{
     font-size: 2em;
     font-weight: 100;
-    font-family: 'helveticaNeue-light';
+    font-family: 'helveticaNeue-light', arial;
     margin-left: 2em;
     margin-right: 2em;
 }
