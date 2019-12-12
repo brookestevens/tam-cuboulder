@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 function validateForm(data){
   let d = Object.getOwnPropertyNames(data);
+  let re = /http/g;
+  if(data['link'] !== undefined && !re.test(data[d[4]])) return 0;
   for(let i=0; i< d.length; i++){
-    if(data[d[i]] === null) return 0;
+    if(data[d[i]] === null || data[d[i]] === undefined) return 0;
   }
   return 1;
 }
@@ -43,9 +45,9 @@ function FeaturedWorksUpload(){
         }
     }
   }
-  function handleClick(){
-    if (validateForm(formData) && validateForm(image) !== null){
-        //POST DATA TO DRUPAL
+  function handleSubmit(e){
+    e.preventDefault();
+    if (validateForm(formData) && validateForm(image)){
         fetch('/api/featured_works/add' , {method: 'POST', body: JSON.stringify({data: formData, img: image})})
         .then( res => res.json())
         .then( res => {
@@ -86,7 +88,7 @@ function FeaturedWorksUpload(){
   }
   else{
     return(
-        <div id="submit-project-form">
+        <form id="submit-project-form" onSubmit = {e => handleSubmit(e)}>
           <p>
             Please review your information before submitting. You cannot change any information once its been submitted
           </p>
@@ -115,8 +117,8 @@ function FeaturedWorksUpload(){
           <br/>
           {image.stream ? <img src= {"data:"+ image.type + ";base64," + image.stream} alt="upload" width= "100" height="100" onLoad={ e => handleLoad(e)}/> : null}
           <br/>
-          <button className="submit-project-button" onClick = { () => handleClick()} > Submit </button>
-        </div>
+          <button type="submit" className="submit-project-button"> Submit </button>
+        </form>
     );
   }
 }
