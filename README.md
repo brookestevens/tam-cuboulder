@@ -1,4 +1,4 @@
-<h1> Technology, Arts, & Media Department Site for the University of Colorado Boulder </h1>
+<h1> CU Boulder TAM Site </h1>
 </hr>
 <h2> Drupal 8 | Gatsby | Heroku </h2>
 <h3> Setup </h3>
@@ -20,7 +20,7 @@
 </code></pre>
 
 <h3> static.json and gatsby-config.js * IMPORTANT * </h3>
-<p> These files allow Gatsby to connect to the Drupal backend site and is needed by Heroku. The static.json file is for Heroku to proerly build the site and proxy an needed urls. In the gatsby-config.js file, configurations for development proxying and plugins are put here. 
+<p> These files allow Gatsby to connect to the Drupal backend site and is needed by Heroku. The static.json file is for Heroku to properly build the site and proxy requests.
 </p>
 <h3> Adding Pages </h3>
 <p> 
@@ -32,7 +32,7 @@ Put all images in the src -> images directory
 </p>
 <h3> Styles </h3> 
 <p>
-All of the stylesheets are in the src->styles directory and are written in plain css. There are no CSS preprocessors used and no modules installed to parse LESS or SASS, but can be added if desired!
+All of the stylesheets are in the src->styles directory and are written in plain css. There are no CSS preprocessors used and no modules installed to parse LESS or SASS, but can be added if desired.
 </p>
 <h3> Documentation </h3>
 <p>
